@@ -1,0 +1,40 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "Laboratorio1Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "mirror",
+   "ProceduresReturnList": false,
+   "ProjectRootNamespace": "Entity",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "Tables": [
+      {
+         "Name": "[dbo].[MarcaVehiculo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Vehiculo]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "GMCLOUDDEV01\\SQL2016DEV.Laboratorio1",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}
