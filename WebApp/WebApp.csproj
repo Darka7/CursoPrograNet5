@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\app\Mantenimiento\MarcaVehiculo\Grid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="System.Text.Json" Version="6.0.0-preview.1.21102.12" />
@@ -16,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\app\" />
     <Folder Include="wwwroot\tsentitys\" />
   </ItemGroup>
 
@@ -33,6 +36,10 @@
     <None Include="wwwroot\Assets\Plugin\jquery\jquery.slim.min.map" />
     <None Include="wwwroot\Assets\template\icons\font-awesome\webfonts\fa-solid-900.woff2" />
     <None Include="wwwroot\Assets\template\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\app\Mantenimiento\MarcaVehiculo\Grid.ts" />
   </ItemGroup>
 
 </Project>

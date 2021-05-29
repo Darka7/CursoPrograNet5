@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <base href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApp</title>
     @await Html.PartialAsync("_Header")
@@ -372,7 +373,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="index.html" class="sidebar-link">
+                                    <a  class="sidebar-link" asp-page="Mantenimiento/MarcaVehiculo/Grid" >
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> Marcar Vehiculo </span>
                                     </a>
