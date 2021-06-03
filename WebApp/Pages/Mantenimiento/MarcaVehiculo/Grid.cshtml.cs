@@ -22,12 +22,19 @@ namespace WebApp.Pages.Mantenimiento.MarcaVehiculo
 
         public IEnumerable<MarcaVehiculoEntity> Grid { get; set; } = new List<MarcaVehiculoEntity>();
 
-       
-        public async Task<IActionResult> OnGetAsync()
+        public string Mensaje { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? code)
         {
             try
             {
                 Grid = await service.MarcaVehiculoGet();
+                if (code.HasValue) {
+
+                    Mensaje = code == 1 ? "Se elimino el registro!" : null;
+                
+                }
+
             }
             catch (Exception ex)
             {
@@ -36,6 +43,26 @@ namespace WebApp.Pages.Mantenimiento.MarcaVehiculo
             return Page();
 
         }
+
+        
+        public async Task<IActionResult> OnGetBorrarDatosAsync(int id)
+        {
+            try
+            {
+                var result = await service.MarcaVehiculoDelete(id);
+
+                return Redirect("../Grid?code=1");
+
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
+            
+        }
+
+      
 
 
     }

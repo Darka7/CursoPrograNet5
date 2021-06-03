@@ -1,84 +1,95 @@
-﻿@page
+﻿@page "{handler?}"
 @model WebApp.Pages.Mantenimiento.MarcaVehiculo.GridModel
 
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-5 col-12 align-self-center">
+        <h3 class="text-themecolor mb-0">Matenimientos</h3>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Marca Vehiculo</a></li>
 
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <div class="row page-titles">
-        <div class="col-md-5 col-12 align-self-center">
-            <h3 class="text-themecolor mb-0">Matenimientos</h3>
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Marca Vehiculo</a></li>
-
-            </ol>
-        </div>
-
+        </ol>
     </div>
 
+</div>
 
 
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <div class="card">
-            <div class="border-bottom title-part-padding">
-                <h4 class="card-title mb-0">Lista Marca Vehiculos </h4>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <a class="btn waves-effect waves-light btn-rounded btn-outline-primary" asp-page="Edit">Nuevo</a>
-                    </div>
+    <div class="card">
+        <div class="border-bottom title-part-padding">
+            <h4 class="card-title mb-0">Lista Marca Vehiculos </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <a class="btn waves-effect waves-light btn-rounded btn-outline-primary" asp-page="Edit">Nuevo</a>
                 </div>
-                <br />
-                <table id="GridView" class="table">
-                    <thead>
-                        <tr>
-                            <th>Id Marca Vehiculo</th>
-                            <th>Descripcion</th>
-                            <th>Estado</th>
-                            <th>Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Grid)
-                        {
-                            <tr>
-                                <td>@item.MarcaVehiculoId</td>
-                                <td>@item.Descripcion</td>
-                                <td>@Html.Raw(item.Estado ? "<i class='bx bx-check-circle' ></i>": "<i class='bx bx-x-circle' ></i>")</td>
-                                <td>
-                                    <a class="btn btn-light-info btn-circle btn-sm  d-inline-flex align-items-center justify-content-center"
-                                     asp-page="Edit" asp-route-id="@item.MarcaVehiculoId"  >
-                                        <i class='bx bx-edit-alt'></i>
-                                    </a>
-                                    <button type="button" onclick="MarcaVehiculoGrid.OnClickEliminar()" class="btn btn-light-danger btn-circle btn-sm   d-inline-flex align-items-center justify-content-center">
-                                        <i class='bx bx-trash'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        }
-
-
-
-
-
-                    </tbody>
-                </table>
-
-
-
             </div>
+            <br />
+            <table id="GridView" class="table">
+                <thead>
+                    <tr>
+                        <th>Id Marca Vehiculo</th>
+                        <th>Descripcion</th>
+                        <th>Estado</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Grid)
+                    {
+                        <tr>
+                            <td>@item.MarcaVehiculoId</td>
+                            <td>@item.Descripcion</td>
+                            <td>
+                                @if (item.Estado)
+                                {
+                                    <i class='bx bx-check-circle'></i>
+                                }
+                                else
+                                {
+                                    <i class='bx bx-x-circle'></i>
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-light-info btn-circle btn-sm  d-inline-flex align-items-center justify-content-center"
+                                   asp-page="Edit" asp-route-id="@item.MarcaVehiculoId" >
+                                    <i class='bx bx-edit-alt'></i>
+                                </a>
+                                <button type="button"  onclick="MarcaVehiculoGrid.OnClickEliminar(@item.MarcaVehiculoId)" class="btn btn-light-danger btn-circle btn-sm   d-inline-flex align-items-center justify-content-center">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+
+
+
+
+
+                </tbody>
+            </table>
+
+
 
         </div>
-
 
     </div>
 
 
-@section Scripts{ 
+</div>
 
-    <script  defer src="~/app/Mantenimiento/MarcaVehiculo/Grid.js"></script>
 
- 
+@section Scripts{
+
+    <script>
+        var MensajeGrid = '@Html.Raw(Model.Mensaje)';
+    </script>
+
+    <script defer src="~/app/Mantenimiento/MarcaVehiculo/Grid.js"></script>
+
+
 }

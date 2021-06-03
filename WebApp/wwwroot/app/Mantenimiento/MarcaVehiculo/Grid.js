@@ -1,10 +1,17 @@
 "use strict";
 var MarcaVehiculoGrid;
 (function (MarcaVehiculoGrid) {
-    function OnClickEliminar() {
+    if (MensajeGrid != "") {
+        Toast.fire({
+            icon: "success",
+            title: MensajeGrid
+        })
+            .then(function () { return window.location.href = "Mantenimiento/MarcaVehiculo/Grid"; });
+    }
+    function OnClickEliminar(id) {
         ComfirmAlert("Desea Eliminar Este registro", "Si", "warning", "#3085d6", "#d33").then(function (result) {
             if (result.isConfirmed) {
-                alert("si");
+                window.location.href = "Mantenimiento/MarcaVehiculo/Grid/BorrarDatos?id=" + id;
             }
         });
     }
